@@ -25,6 +25,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: none; /* Verberg de video tot de gebruiker op Play klikt */
         }
         #playButton {
             position: absolute;
@@ -45,22 +46,23 @@
 </head>
 <body>
 
-    <!-- Video element (standaard gemute, tot de gebruiker klikt) -->
+    <!-- Video element (verborgen tot de gebruiker klikt) -->
     <video id="mijnVideo" loop>
         <source src="lv_7454755860242337029_20250320110235.mp4" type="video/mp4">
         Je browser ondersteunt geen video.
     </video>
 
-    <!-- Knop om geluid in te schakelen -->
-    <button id="playButton" onclick="startVideo()">Klik om af te spelen</button>
+    <!-- Play-knop -->
+    <button id="playButton" onclick="startVideo()">▶ Play</button>
 
     <script>
         function startVideo() {
             var video = document.getElementById("mijnVideo");
             var button = document.getElementById("playButton");
 
+            video.style.display = "block"; // Laat de video zien
             video.muted = false;  // Zet het geluid aan
-            video.play();         // Speel de video af
+            video.play();         // Start de video
             button.style.display = "none"; // Verberg de knop
         }
     </script>
