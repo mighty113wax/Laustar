@@ -3,13 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fullscreen Video</title>
+    <title>Fullscreen Video met Geluid</title>
     <style>
-        body, html {
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+        body, html {
             height: 100%;
             overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: black;
         }
         video {
             position: absolute;
@@ -17,14 +24,46 @@
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Zorgt ervoor dat de video het hele scherm bedekt zonder de verhoudingen te vervormen */
+            object-fit: cover;
+        }
+        #playButton {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 15px 30px;
+            font-size: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            cursor: pointer;
+            z-index: 10;
+        }
+        #playButton:hover {
+            background: rgba(255, 255, 255, 1);
         }
     </style>
 </head>
 <body>
-    <video autoplay loop muted>
+
+    <!-- Video element (standaard gemute, tot de gebruiker klikt) -->
+    <video id="mijnVideo" loop>
         <source src="lv_7454755860242337029_20250320110235.mp4" type="video/mp4">
         Je browser ondersteunt geen video.
     </video>
+
+    <!-- Knop om geluid in te schakelen -->
+    <button id="playButton" onclick="startVideo()">Klik om af te spelen</button>
+
+    <script>
+        function startVideo() {
+            var video = document.getElementById("mijnVideo");
+            var button = document.getElementById("playButton");
+
+            video.muted = false;  // Zet het geluid aan
+            video.play();         // Speel de video af
+            button.style.display = "none"; // Verberg de knop
+        }
+    </script>
+
 </body>
 </html>
