@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fullscreen Video</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Zorgt ervoor dat de video het hele scherm bedekt zonder de verhoudingen te vervormen */
+        }
+    </style>
+</head>
+<body>
+    <video autoplay loop controls muted>
+        <source src="lv_7454755860242337029_20250320110235.mp4" type="video/mp4">
+        Je browser ondersteunt geen video.
+    </video>
+</body>
+</html>
